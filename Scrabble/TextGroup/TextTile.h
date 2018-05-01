@@ -8,13 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@class TextTile;
+
+@protocol TextTileDelegate
+
+- (void) tileTouched:(TextTile *)textTile touch:(UITouch *)touch;
+- (void) tileReleased:(TextTile *)textTile touch:(UITouch*)touch;
+
+@end
+
 @interface TextTile : UIView
 
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) NSString *letter;
 @property Boolean isBlank;
+@property Boolean clonable;
 @property CGFloat pointValue;
+@property CGSize origSize;
 
-- (id)initWithFrame:(CGRect)frame letter:(NSString*)letter;
+@property (weak, nonatomic) id <TextTileDelegate> delegate;
+
+
+- (id)initWithFrame:(CGRect)frame letter:(NSString*)letter clonable:(Boolean)clonable;
 
 @end
+

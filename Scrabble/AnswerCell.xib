@@ -24,11 +24,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOh-it-iqj">
-                        <rect key="frame" x="16" y="8" width="44" height="44"/>
+                        <rect key="frame" x="16" y="8" width="54" height="44"/>
                         <color key="backgroundColor" red="0.97647058959999999" green="0.38007445847100868" blue="0.32184895869158092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="V1g-D8-5Py"/>
-                            <constraint firstAttribute="width" constant="44" id="nN0-f8-ZPf"/>
+                            <constraint firstAttribute="width" constant="54" id="nN0-f8-ZPf"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +46,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV1-b2-wRJ">
-                        <rect key="frame" x="76" y="8" width="268" height="44"/>
+                        <rect key="frame" x="86" y="8" width="258" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="dFC-Sx-hr0"/>
                         </constraints>

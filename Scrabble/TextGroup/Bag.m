@@ -11,13 +11,14 @@
 @implementation Bag
 
 // A custom designated initializer for an UIView subclass.
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame inViewController:(ViewController<TextTileDelegate>*)viewController {
     // Initialize the superclass first.
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.25];
+        self.viewController = viewController;
         [self populateTiles];
         [self initView];
-        self.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.25];
     }
     return self;
 }
@@ -106,8 +107,8 @@
                                   ((int)(i/numInRow)) * (self.tileSize + padding/2),
                                   self.tileSize, self.tileSize);
         
-        TextTile *textTile = [[TextTile alloc] initWithFrame:frame letter:letter];
-        
+        TextTile *textTile = [[TextTile alloc] initWithFrame:frame letter:letter clonable:true];
+        textTile.delegate = self.viewController;
         [self addSubview:textTile];
         i++;
     }

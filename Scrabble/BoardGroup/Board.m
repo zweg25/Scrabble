@@ -96,15 +96,15 @@
         
         // Initialize board
         self.board = [[NSMutableArray alloc] initWithCapacity:size];
-        CGFloat tileSize = fmin(self.frame.size.width, self.frame.size.height) / size;
+        self.tileSize = fmin(self.frame.size.width, self.frame.size.height) / size;
         CGFloat padding = 2;
         for (int r = 0; r < size; r++) {
             // Create new row of tiles
             NSMutableArray *row = [[NSMutableArray alloc] initWithCapacity:size];
             for (int c = 0; c < size; c++) {
                 // Add each tile to row
-                CGRect frame = CGRectMake(c * tileSize + padding / 2, r * tileSize + padding / 2,
-                                          tileSize - padding, tileSize - padding);
+                CGRect frame = CGRectMake(c * self.tileSize + padding / 2, r * self.tileSize + padding / 2,
+                                          self.tileSize - padding, self.tileSize - padding);
                 Pair *position = [[Pair alloc] initWithRow:r col:c];
                 TileType type = SingleLetter;
                 if ([doubleWords containsObject:position]) {
@@ -127,6 +127,7 @@
             // Add row to board
             [self.board addObject:row];
         }
+        self.hasStarted = false;
     }
     return self;
 }

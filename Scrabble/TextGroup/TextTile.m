@@ -11,7 +11,7 @@
 @implementation TextTile
 
 // A custom designated initializer for an UIView subclass.
-- (id)initWithFrame:(CGRect)frame letter:(NSString*)letter {
+- (id)initWithFrame:(CGRect)frame letter:(NSString*)letter clonable:(Boolean)clonable {
     // Initialize the superclass first.
     //
     // Make sure initialization was successful by making sure
@@ -21,6 +21,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Set vars
+        self.origSize = self.frame.size;
         self.letter = letter;
         self.isBlank = [self.letter isEqualToString:@"blank"];
         
@@ -31,6 +32,7 @@
         [self addSubview:self.imgView];
         
         // Add score label
+        /*
         CGFloat fontSize = self.frame.size.width < 50 ? 10 : 20;
         CGFloat textPadding = self.frame.size.width < 50 ? 2 : 10;
         UIFont *font = [UIFont fontWithName:@"Avenir" size:fontSize];
@@ -48,6 +50,9 @@
         scoreLabel.textColor = [UIColor blackColor];
         scoreLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:scoreLabel];
+         */
+        
+        self.clonable = clonable;
     }
     return self;
 }
@@ -120,6 +125,36 @@
 
 + (NSInteger) valueOfTile: (TextTile *)tile {
     return [TextTile valueOfLetter:tile.letter];
+}
+
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    if (self.clonable) {
+        // Add tile to remain in bag
+        TextTile *remaining = [[TextTile alloc] initWithFrame:self.frame letter:self.letter clonable:true];
+        [self.superview insertSubview:remaining belowSubview:self];
+        
+        self.clonable = false;
+        remaining.delegate = self.delegate;
+    }
+    UITouch *touch = [event.allTouches anyObject];
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.origSize.width, self.origSize.height);
+    self.imgView.frame = CGRectMake(0, 0, self.origSize.width, self.origSize.height);
+    [self.delegate tileTouched:self touch:touch];
+}
+
+- (void) touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesMoved:touches withEvent:event];
+    if (!self.clonable) {
+        UITouch *touch = [event.allTouches anyObject];
+        self.center = [touch locationInView:self.superview];
+    }
+}
+
+- (void) touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    UITouch *touch = [event.allTouches anyObject];
+    [self.delegate tileReleased:self touch:touch];
 }
 
 @end

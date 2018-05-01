@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TextTile.h"
+@class ViewController;
 
 @interface Bag : UIView
 
+- (id)initWithFrame:(CGRect)frame inViewController:(ViewController*)viewController;
+
+@property (weak, nonatomic) ViewController<TextTileDelegate> *viewController;
 @property (strong, nonatomic) NSDictionary *tiles;
 @property CGFloat tileSize;
 - (NSInteger) numberOfTile: (NSString *)tile;

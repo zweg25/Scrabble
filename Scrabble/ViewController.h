@@ -13,14 +13,21 @@
 #import "TextTile.h"
 #import "Rack.h"
 #import "TableViewManager.h"
+#import "STHTTPRequest.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<TextTileDelegate, AnswerTableDelegate>
+
+@property (strong, nonatomic) Dictionary *dictionary;
+@property (strong, nonatomic) NSMutableDictionary *savedState;
 
 @property (strong, nonatomic) Board *board;
-@property (strong, nonatomic) Dictionary *dictionary;
 @property (strong, nonatomic) Bag *tileBag;
 @property (strong, nonatomic) Rack *rack;
+
 @property (strong, nonatomic) TableViewManager *tableViewManager;
+
+@property (strong, nonatomic) IBOutlet UIButton *calculateButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingWheel;
 
 @end
 

@@ -11,6 +11,7 @@
 @interface Rack : UIView
 
 - (id)initWithFrame:(CGRect)frame letters:(NSArray*)letters tileSize:(CGFloat)size;
+- (void) resetPositions;
 
 @property (strong, nonatomic) NSMutableArray *letters;
 @property (strong, nonatomic) NSMutableArray *positions;

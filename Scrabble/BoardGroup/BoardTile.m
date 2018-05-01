@@ -46,19 +46,9 @@
                 self.backgroundColor = [UIColor lightGrayColor];
                 break;
         }
-        if (self.type == TripleWord) {
-            
-        } else if (self.type == DoubleWord) {
-            self.backgroundColor = [UIColor redColor];
-        } else if (self.type == TripleLetter) {
-            self.backgroundColor = [UIColor blueColor];
-        } else if (self.type == DoubleLetter) {
-            self.backgroundColor = [UIColor cyanColor];
-        } else if (self.type == DoubleLetter) {
-            
-        } else {
-            
-        }
+        self.isUsed = false;
+        self.letter = @"";
+        self.position = pos;
     }
     return self;
 }

@@ -21,6 +21,9 @@ typedef enum {
 } TileType;
 
 @property TileType type;
+@property Boolean isUsed;
+@property NSString *letter;
+@property Pair *position;
 
 - (id)initWithFrame:(CGRect)frame type:(TileType)type position:(Pair*)pos;
 - (TileType) setTileType:(TileType)type;

@@ -8,7 +8,9 @@
 
 #import "Rack.h"
 
-@implementation Rack
+@implementation Rack {
+    NSMutableArray *copyPositions;
+}
 
 // A custom designated initializer for an UIView subclass.
 - (id)initWithFrame:(CGRect)frame letters:(NSArray*)letters tileSize:(CGFloat)size {
@@ -30,6 +32,7 @@
         
         UIColor *patternColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wood_pattern"]];
         self.backgroundColor = patternColor;
+        self.positions = [[NSMutableArray alloc] init];
         
         // Add blank tiles
         for (int i = 0; i < 7; i++) {
@@ -48,8 +51,19 @@
         [label setText:@"Tile Rack"];
         [label setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:label];
+        
+        copyPositions = [[NSMutableArray alloc] initWithArray:self.positions copyItems:YES];
+        [copyPositions sortUsingComparator:^NSComparisonResult(id firstObject, id secondObject) {
+            CGPoint firstPoint = [firstObject CGPointValue];
+            CGPoint secondPoint = [secondObject CGPointValue];
+            return (firstPoint.x > secondPoint.x) - (secondPoint.x > firstPoint.x);
+        }];
     }
     return self;
+}
+
+- (void) resetPositions {
+    self.positions = [[NSMutableArray alloc] initWithArray:copyPositions copyItems:YES];
 }
 
 @end

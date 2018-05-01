@@ -13,5 +13,7 @@
 @interface Board : UIView
 
 @property (strong, nonatomic) NSMutableArray *board;
+@property Boolean hasStarted;
+@property CGFloat tileSize;
 
 @end
