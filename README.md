@@ -1,7 +1,7 @@
 # Scrabble: 
 Linguistic Principles Behind Word Games
 
-**Description:** A scrabble board solver that allows a user to set up a normal scrabble board and the best resulting word based on points scored and tiles left after words are played.
+**Project Description:** A scrabble board solver that allows a user to set up a normal scrabble board and the best resulting word based on points scored and tiles left after words are played.
 
 ## How to run code
 
@@ -13,7 +13,7 @@ When you download this repository you can run it straight in XCode. Make sure yo
 
 This project was programmed in Objective-C. I broke up the project into three main components: the board, the rack, and the solver. 
 The board handles the values of each tile on it as well as the point value for each tile.
-The rack maintains the tiles ready to play and interacts with www.crosstables.com, an online scrabble calculator to determine the leave value of certain rack.
+The rack maintains the tiles ready to play and interacts with http://www.cross-tables.com/leaves.php, an online scrabble calculator to determine the leave value of certain rack.
 The solver interacts with the board and the rack to find the top point value words according to score and leave value. It uses a Dictionary object which contains all words and prefixes in an English Words With Friends dictionary to test all combinations of valid letters.
 
 Putting this altogether results in a basic intelligent scrabble solver that ranks the top plays.
@@ -41,12 +41,12 @@ Consequently, single-tile leave scores could have very different outputs than th
 The single tile leave score does not think of the entire hand. However, it does consider the strength of letters on average.
 That is why I use both values in my program to evaluate the total value of a specific play.
 
-This program is motivated by there different linguistic topics to not only provide the best Scrabble word, but also to explore how significant synergy is in the English language.
+This program is motivated by different linguistic topics to not only provide the best Scrabble word, but also to explore how significant synergy is in the English language.
 
 ## Known Bugs/What's Next
 
 As of now, blank tiles are not implemented. They are not as important to the motivation of the project. 
 Additionally, exchanging tiles are a very important factor in the game of Scrabble, 
-but because I do not have direct access to the algorithms calculators use to determine a rack's leave score, I could not try every combination of leftover racks.
+but because I do not have direct access to the algorithm's calculators use to determine a rack's leave score, I could not try every combination of leftover racks.
 Thus, the next most important thing to implement is evaluating the value of exchanging tiles.
 
