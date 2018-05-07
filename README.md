@@ -9,6 +9,10 @@ Linguistic Principles Behind Word Games
 
 When you download this repository, you can open and run it straight in [XCode](https://developer.apple.com/xcode/downloads/). Make sure you have a reliable wifi connection for certain HTTP requests. 
 
+## Project Demo:
+
+YouTube link: [https://youtu.be/UG0Bt6lWX20]
+
 ## Design Details
 
 This project was programmed in Objective-C. I broke up the project into three main components: the board, the rack, and the solver. 
