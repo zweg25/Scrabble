@@ -7,7 +7,7 @@ Linguistic Principles Behind Word Games
 
 **Instructions**
 
-When you download this repository you can run it straight in [XCode](https://developer.apple.com/xcode/downloads/). Make sure you have a reliable wifi connection for certain HTTP requests. 
+When you download this repository you can open and run it straight in [XCode](https://developer.apple.com/xcode/downloads/). Make sure you have a reliable wifi connection for certain HTTP requests. 
 
 ## Design Details
 
